@@ -1,0 +1,4 @@
+R5T.T0028.Abstractions - Abstraction interface definitions for the IStringBuilder types library.
+
+Goals
+
