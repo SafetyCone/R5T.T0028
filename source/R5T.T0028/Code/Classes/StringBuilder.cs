@@ -54,5 +54,10 @@ namespace R5T.T0028
 
             return this;
         }
+
+        public override string ToString()
+        {
+            return this.StringBuilder_Internal.ToString();
+        }
     }
 }
