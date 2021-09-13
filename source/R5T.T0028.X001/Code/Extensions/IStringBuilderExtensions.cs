@@ -66,6 +66,15 @@ namespace R5T.T0028.X001
             return stringBuilder.AppendToken(token, tokenSeparator);
         }
 
+        public static TStringBuilder AppendNameQuotedValuePair<TStringBuilder>(this TStringBuilder stringBuilder,
+            string name, string value, string pairTokenSeparator = TokenSeparator.Default, string tokenSeparator = TokenSeparator.Default)
+            where TStringBuilder : IStringBuilder
+        {
+            var token = $"{name}{pairTokenSeparator}\"{value}\"";
+
+            return stringBuilder.AppendToken(token, tokenSeparator);
+        }
+
         public static TStringBuilder AppendNameValuePairIf<TStringBuilder>(this TStringBuilder stringBuilder, bool actullayAppend,
             string name, string value, string pairTokenSeparator = TokenSeparator.Default, string tokenSeparator = TokenSeparator.Default)
             where TStringBuilder : IStringBuilder
