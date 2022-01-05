@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
 namespace R5T.T0028.X001
@@ -41,6 +42,21 @@ namespace R5T.T0028.X001
             var quotedToken = $"\"{token}\"";
 
             return stringBuilder.AppendToken(quotedToken, tokenSeparator);
+        }
+
+        public static TStringBuilder AppendFilePathTokens<TStringBuilder>(this TStringBuilder stringBuilder,
+            IEnumerable<string> filePaths,
+            string tokenSeparator = TokenSeparator.Default)
+            where TStringBuilder : IStringBuilder
+        {
+            var output = stringBuilder;
+
+            foreach (var filePath in filePaths)
+            {
+                output = output.AppendTokenQuoted(filePath, tokenSeparator);
+            }
+
+            return output;
         }
 
         public static TStringBuilder AppendFilePathToken<TStringBuilder>(this TStringBuilder stringBuilder,
